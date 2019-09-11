@@ -1,0 +1,89 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url(assets/background.png)
+}
+
+html {
+    font-family: 'Merriweather', serif;
+}
+
+/* Navpanel */
+
+#navbar {
+    background-color: #333333;
+    padding: 20px 10% 10px 10%;
+}
+
+.nav-elements {
+    float: right;
+    font-family: sans-serif;
+    size: 10px;
+    padding: 8px 0;
+    text-transform: uppercase;
+}
+
+.nav-elements a {
+    color: #ff0099;
+    margin-left: 20px;
+}
+
+.nav-elements a:hover {
+    color: white;
+}
+
+/* Header */
+
+#header {
+    margin: 50px 10%;
+}
+
+#header h1 {
+    font-size: 56px;
+    margin-bottom: 40px;
+}
+
+#header h2 {
+    color: #ff0099;
+    margin-bottom: 30px;
+}
+
+#header p {
+    font-family: courier;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+/* Separator */
+
+#separator {
+    text-align: center;
+}
+
+/* Technology wiki section */
+
+#tech-wiki {
+    margin: 50px 10%;
+}
+
+#tech-wiki h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 32px;
+}
+
+#tech-wiki h3 {
+    font-size: 24px;
+}
+
+#tech-wiki p {
+    font-family: courier;
+    margin: 20px 0;
+}
+
+.top {
+    color: #ff0099;
+}
