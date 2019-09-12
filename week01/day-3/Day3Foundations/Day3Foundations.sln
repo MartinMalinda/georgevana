@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29306.81
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Day3Foundations", "Day3Foundations\Day3Foundations.csproj", "{FBA1CD5C-D3DB-4FC1-B650-6DC78107906A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FBA1CD5C-D3DB-4FC1-B650-6DC78107906A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FBA1CD5C-D3DB-4FC1-B650-6DC78107906A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FBA1CD5C-D3DB-4FC1-B650-6DC78107906A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FBA1CD5C-D3DB-4FC1-B650-6DC78107906A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FE057C95-9792-486B-88A2-1048F160D51E}
+	EndGlobalSection
+EndGlobal
