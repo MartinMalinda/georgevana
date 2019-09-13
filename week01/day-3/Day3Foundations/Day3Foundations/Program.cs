@@ -6,28 +6,17 @@ namespace GreenFox
     {
         static void Main(string[] args)
         {
-            // Write a program that asks for two numbers
-            // The first number represents the number of girls that comes to a party, the
-            // second the boys
-            // It should print: The party is exellent!
-            // If the the number of girls and boys are equal and there are more people coming than 20
-            //
-            // It should print: Quite cool party!
-            // It there are more than 20 people coming but the girl - boy ratio is not 1-1
-            //
-            // It should print: Average party...
-            // If there are less people coming than 20
-            //
-            // It should print: Sausage party
-            // If no girls are coming, regardless the count of the people
-            double imputOne;
-            double imputTwo;
-
-            Console.WriteLine("Hello, how many girls is going to the party");
-            imputOne = Convert.ToDouble(Console.ReadLine());
-
-            Console.WriteLine("Ok, cool, and how many boys is going to the party?");
-            imputTwo = Convert.ToDouble(Console.ReadLine());
+            // Write a program that prints the numbers from 1 to 100.
+            // But for multiples of three print “Fizz” instead of the number
+            // and for the multiples of five print “Buzz”.
+            // For numbers which are multiples of both three and five print “FizzBuzz”.
+            for (int i = 1; i < 101; i++)
+            {
+                if ()
+                {
+                    Console.WriteLine();
+                }
+            }
         }
     }
 }
