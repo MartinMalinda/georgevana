@@ -24,6 +24,7 @@ class Program
         map.Add(65, 'A');
         map.Add(66, 'B');
         map.Add(67, 'C');
+        //map.Add(100, ' ');
 
         foreach (int key in map.Keys)
         {
@@ -48,17 +49,27 @@ class Program
         
         // Remove the key - value pair with key 97
         map.Remove(97);
-        
-        // Print whether there is an associated value with key 100 or not
 
+        // Print whether there is an associated value with key 100 or not
+        
         if (map.ContainsKey(100))
         {
-            Console.WriteLine("present");
+            // Console.WriteLine("present");
+            map.TryGetValue(100, out letter);
+            if (letter > ' ')
+            {
+                Console.WriteLine("Present, value = " + letter);
+            }
+            else
+            {
+                Console.WriteLine("Present, has no value");
+            }
         }
         else
         {
-            Console.WriteLine("Key 100 doesnt exist = has no value");
+            Console.WriteLine("Key 100 doesnt exist");
         }
+        
 
         // Remove all the key-value pairs
         map.Clear();
