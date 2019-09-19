@@ -64,7 +64,6 @@ class Program
             {
                 Console.WriteLine("Present, has no value");
             }
-            
         }
         else
         {
