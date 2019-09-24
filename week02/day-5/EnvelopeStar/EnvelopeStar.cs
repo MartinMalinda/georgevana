@@ -1,4 +1,4 @@
-﻿using Avalonia;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
@@ -18,14 +18,7 @@ namespace DrawingApplication
             var canvas = this.Get<Canvas>("canvas");
             var foxDraw = new FoxDraw(canvas);
 
-            double triangleSide = 30;
-            double baseLine = Width;
-            double numberOfTriangles = baseLine / triangleSide;
-            /*double lineHeight = baseLine / */
-            for (int i = 0; i < numberOfTriangles; i++)
-            {
-                foxDraw.DrawLine(0 + i * triangleSide/2, baseLine - triangleSide * i, Width - i * triangleSide/2, baseLine - triangleSide * i);
-            }
+            DrawEnvelopeStar(foxDraw, 15);
 
         }
 

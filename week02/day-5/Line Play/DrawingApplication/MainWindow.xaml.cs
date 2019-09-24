@@ -18,13 +18,16 @@ namespace DrawingApplication
             var canvas = this.Get<Canvas>("canvas");
             var foxDraw = new FoxDraw(canvas);
 
-            double triangleSide = 30;
-            double baseLine = Width;
-            double numberOfTriangles = baseLine / triangleSide;
-            /*double lineHeight = baseLine / */
-            for (int i = 0; i < numberOfTriangles; i++)
+            double lines = 15;
+            double distance = Height / lines;
+            foxDraw.SetStrokeColor(Colors.Lime);
+            foxDraw.SetStrokeThicknes(2);
+            for (int i = 1; i < lines; i++)
             {
-                foxDraw.DrawLine(0 + i * triangleSide/2, baseLine - triangleSide * i, Width - i * triangleSide/2, baseLine - triangleSide * i);
+                foxDraw.SetStrokeColor(Colors.Violet);
+                foxDraw.DrawLine(Width, Height - distance * i, Width - distance * i, 0);
+                foxDraw.SetStrokeColor(Colors.Lime);
+                foxDraw.DrawLine(Width - distance * i, Height, 0, Height - distance * i);
             }
 
         }

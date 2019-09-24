@@ -1,4 +1,4 @@
-﻿using Avalonia;
+using Avalonia;
 using Avalonia.Controls;
 using Avalonia.Markup.Xaml;
 using Avalonia.Media;
@@ -18,13 +18,20 @@ namespace DrawingApplication
             var canvas = this.Get<Canvas>("canvas");
             var foxDraw = new FoxDraw(canvas);
 
-            double triangleSide = 30;
-            double baseLine = Width;
-            double numberOfTriangles = baseLine / triangleSide;
-            /*double lineHeight = baseLine / */
-            for (int i = 0; i < numberOfTriangles; i++)
+            Width = Height;
+            double numberOfTriangles = 21;
+            double sideOfTriangle = Width / numberOfTriangles;
+            double heightOfTriangle = (sideOfTriangle * System.Math.Sqrt(3)) / 2;
+            for (int i = 0; i <= numberOfTriangles; i++)
             {
-                foxDraw.DrawLine(0 + i * triangleSide/2, baseLine - triangleSide * i, Width - i * triangleSide/2, baseLine - triangleSide * i);
+            // == lines
+            foxDraw.DrawLine(0 + i * sideOfTriangle / 2, Height - i * heightOfTriangle, Width - i * sideOfTriangle / 2, Height - i * heightOfTriangle);
+                            
+            // // lines
+            foxDraw.DrawLine(Width - i * sideOfTriangle, Height, Width - i *sideOfTriangle / 2 , Height - i * heightOfTriangle);
+
+            // \\ lines
+            foxDraw.DrawLine(0 + i * sideOfTriangle, Height, 0 + i * sideOfTriangle / 2, Height - i * heightOfTriangle);
             }
 
         }
