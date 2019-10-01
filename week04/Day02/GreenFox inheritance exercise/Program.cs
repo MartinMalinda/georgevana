@@ -8,6 +8,8 @@ namespace GreenFox_inheritance_exercise
         {
             var student = new Person();
             var studentTwo = new Person("George Wayne", 33, Gender.male);
+
+            
         }
     }
 }
