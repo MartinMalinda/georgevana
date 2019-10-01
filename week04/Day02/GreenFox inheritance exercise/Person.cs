@@ -21,11 +21,11 @@ namespace GreenFox_inheritance_exercise
             this.PersonGender = gender;
         }
 
-        public void Introduce()
+        public virtual void Introduce()
         {
             Console.WriteLine($"Hi, I am {Name} a {Age} years old {PersonGender}");
         }
-        public void GetGoal()
+        public virtual void GetGoal()
         {
             Console.WriteLine("My goal is: Live for the moment!");
         }

@@ -10,7 +10,9 @@ namespace GreenFox_inheritance_exercise
             var studentTwo = new Person("George Wayne", 33, Gender.male);
 
             var student3 = new Student();
-            var student4 = new Student()
+            var student4 = new Mentor();
+
+            Console.WriteLine(student4.Name);
         }
     }
 }

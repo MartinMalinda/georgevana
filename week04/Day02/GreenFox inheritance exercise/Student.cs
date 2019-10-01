@@ -17,11 +17,11 @@ namespace GreenFox_inheritance_exercise
         {
 
         }
-        public void GetGoal()
+        public override void GetGoal()
         {
             Console.WriteLine("Be junior developer.");
         }
-        public void Introduce()
+        public override void Introduce()
         {
             Console.WriteLine($"Hi, I'am {Name} a {Age} year old {PersonGender} from {PreviousOrganization} who skipped {SkippedDays} days from the course already.");
         }

@@ -9,4 +9,10 @@ namespace GreenFox_inheritance_exercise
         male,
         female
     }
+    public enum EducationLevel
+    {
+        junior,
+        intermediate,
+        senior
+    }
 }
