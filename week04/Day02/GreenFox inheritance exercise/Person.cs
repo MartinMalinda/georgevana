@@ -6,13 +6,15 @@ namespace GreenFox_inheritance_exercise
 {
     class Person
     {
-        public string Name { get; set; } = "Jane Doe";
-        public int Age { get; set; } = 30;
-        public Gender PersonGender { get; set; } = Gender.female;
+        public string Name { get; set; }
+        public int Age { get; set; }
+        public Gender PersonGender { get; set; }
 
         public Person()
         {
-
+            this.Name = "Jane Doe";
+            this.Age = 30;
+            this.PersonGender = Gender.female;
         }
         public Person(string name, int age, Gender gender)
         {

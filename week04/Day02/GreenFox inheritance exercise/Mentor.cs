@@ -6,11 +6,11 @@ namespace GreenFox_inheritance_exercise
 {
     class Mentor : Person
     {
-        public EducationLevel Level { get; set; } = EducationLevel.intermediate;
+        public EducationLevel Level { get; set; }
 
         public Mentor()
         {
-
+            this.Level = EducationLevel.intermediate;
         }
         public Mentor(string name, int age, Gender gender, EducationLevel level) : base(name, age, gender)
         {

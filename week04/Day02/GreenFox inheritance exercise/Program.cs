@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace GreenFox_inheritance_exercise
 {
@@ -6,13 +7,49 @@ namespace GreenFox_inheritance_exercise
     {
         static void Main(string[] args)
         {
-            var student = new Person();
-            var studentTwo = new Person("George Wayne", 33, Gender.male);
+            var people = new List<Person>();
 
-            var student3 = new Student();
-            var student4 = new Mentor();
+            var mark = new Person("Mark", 46, Gender.male);
+            people.Add(mark);
+            var jane = new Person();
+            people.Add(jane);
+            var john = new Student("John Doe", 20, Gender.male, "BME");
+            people.Add(john);
+            var student = new Student();
+            people.Add(student);
+            var gandhi = new Mentor("Gandhi", 148, Gender.male, EducationLevel.senior);
+            people.Add(gandhi);
+            var mentor = new Mentor();
+            people.Add(mentor);
+            var sponsor = new Sponsor();
+            people.Add(sponsor);
+            var elon = new Sponsor("Elon Musk", 46, Gender.male, "SpaceX");
+            people.Add(elon);
 
-            Console.WriteLine(student4.Name);
+            student.SkipDays(3);
+
+            for (int i = 0; i < 5; i++)
+            {
+                elon.Hire();
+            }
+
+            for (int i = 0; i < 3; i++)
+            {
+                sponsor.Hire();
+            }
+
+            foreach (var person in people)
+            {
+                person.Introduce();
+                person.GetGoal();
+            }
+
+            Cohort awesome = new Cohort("AWESOME");
+            awesome.AddStudent(student);
+            awesome.AddStudent(john);
+            awesome.AddMentor(mentor);
+            awesome.AddMentor(gandhi);
+            awesome.Info();
         }
     }
 }

@@ -6,12 +6,13 @@ namespace GreenFox_inheritance_exercise
 {
     class Sponsor : Person
     {
-        public string Company { get; set; } = "Google";
-        public int HiredStudents { get; set; } = 0;
+        public string Company { get; set; }
+        public int HiredStudents { get; set; }
 
         public Sponsor()
         {
-
+            this.Company = "Google";
+            this.HiredStudents = 0;
         }
         public Sponsor(string name, int age, Gender gender, string company) : base(name, age, gender)
         {

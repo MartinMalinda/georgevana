@@ -6,8 +6,8 @@ namespace GreenFox_inheritance_exercise
 {
     class Student : Person
     {
-        public string PreviousOrganization { get; set; } = "The School of Life";
-        public int SkippedDays { get; set; } = 0;
+        public string PreviousOrganization { get; set; }
+        public int SkippedDays { get; set; }
 
         public Student(string name, int age, Gender gender, string organization) : base(name, age, gender)
         {
@@ -15,11 +15,12 @@ namespace GreenFox_inheritance_exercise
         }
         public Student()
         {
-
+            this.PreviousOrganization = "The school of life";
+            this.SkippedDays = 0;
         }
         public override void GetGoal()
         {
-            Console.WriteLine("Be junior developer.");
+            Console.WriteLine("My goal is: Be a junior software developer.");
         }
         public override void Introduce()
         {
