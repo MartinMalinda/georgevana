@@ -27,6 +27,13 @@ namespace LINQ_exercises
 
             //Write a LINQ Expression to get the squared value of the positive numbers from the following array:
 
+            var positiveNumbers = numbers.Where(n => n > 0).Sum();
+            var squaredValue = positiveNumbers * positiveNumbers;
+
+            //Write a LINQ Expression to find which number squared value is more then 20 from the following array:
+            int[] numbers2 = { 3, 9, 2, 8, 6, 5 };
+
+            var squaredOfValue = numbers2.Where(n => n * n > 20);
 
         }
     }
