@@ -23,8 +23,8 @@ namespace LINQ_exercises
             //var averageOfOddNumbers = oddNumbers.Sum() / oddNumbers.Count();
 
             var averageOfOddNumbersQuery = (from number in numbers
-                                           where number % 2 != 0
-                                           select number)
+                                            where number % 2 != 0
+                                            select number)
                                            .Average();
 
             //Write a LINQ Expression to get the squared value of the positive numbers from the following array:
@@ -47,6 +47,13 @@ namespace LINQ_exercises
 
             var dictionary = new Dictionary<int, int>();
             numbers3.GroupBy(n => n).ToList().ForEach(n => dictionary.Add(n.Key, n.Count()));
+            var test = numbers3.GroupBy(n => n).ToDictionary(n => n.Key, n => n.Count());
+
+            //Write a LINQ Expression to find the frequency of characters in a given string.
+            string input = "testing with the spaces";
+            //var alphabetsCount = input.GroupBy(x => x).Select(x => new {Character = x.Key, Count = x.Count()});
+            var alphabetsCount = input.GroupBy(x => x).Where(x => x.Key != 32).ToDictionary(n => n.Key, n => n.Count());
+
         }
     }
 }
