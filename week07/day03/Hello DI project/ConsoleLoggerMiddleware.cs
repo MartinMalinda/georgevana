@@ -22,6 +22,7 @@ namespace Hello_DI_project
             Console.WriteLine("Hi from the middleware");
             printer.Log("hello");
             color.PrintColor();
+            /*color.PrintColor();*/
             return next(context);
         }
     }

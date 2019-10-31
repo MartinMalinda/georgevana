@@ -7,9 +7,16 @@ namespace Hello_DI_project
 {
     public class RedColor : IColor
     {
+        private readonly Printer printer;
+
+        public RedColor(Printer printer)
+        {
+            this.printer = printer;
+        }
+
         public void PrintColor()
         {
-            Console.WriteLine("It is red in color");
+            printer.Log("It is red in color");
         }
     }
 }
