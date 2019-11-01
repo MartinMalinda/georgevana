@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using FoxClub.Models;
+@model Fox;
 
 <html>
 <head>
@@ -10,7 +11,7 @@
         <li><a href="~">Information</a></li>
     </ul>
     <img src="~/greenfox.png" />
-    <p>This is Mr. Fox. Currently living on pizza and lemonade. He knows 2 tricks.</p>
+    <p>This is @Model.Name. Currently living on pizza and lemonade. He knows 2 tricks.</p>
     <h2>Known tricks</h2>
     <ul>
         <li>write HTML</li>

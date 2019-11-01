@@ -19,22 +19,22 @@ namespace FoxClub.Controllers
         }
 
         [HttpGet("home")]
-        public IActionResult Index()
+        public IActionResult Index(string name)
         {
-            return View(foxService);
+            return View(foxService.FindFoxByName(name));
         }
 
         [HttpGet("login")]
         public IActionResult Login()
         {
-            return View(foxService);
+            return View();
         }
 
         [HttpPost("login")]
         public IActionResult Login(string name)
         {
             foxService.foxes.Add(new Fox(name));
-            return RedirectToAction("index", "home", new { name });
+            return RedirectToAction("Index", "Home", new { name });
         }
     }
 }
