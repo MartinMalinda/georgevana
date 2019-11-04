@@ -1,0 +1,40 @@
+﻿@using FoxClub.Models;
+@model Fox;
+
+<h2>@Model.Name</h2>
+<ul>
+    <li>
+        <a href="/home/?name=@Model.Name">information</a>
+    </li>
+    <li>
+        <a href="/nutritionstore/?name=@Model.Name">nutrition store</a>
+    </li>
+    <li>
+        <a href="/trickcenter/?name=@Model.Name">trick center</a>
+    </li>
+</ul>
+<form action="/trickcenter" method="post">
+    <input type="text" value="@Model.Name" name="name" hidden />
+
+    @if (Model.Tricks.Count.Equals(ViewBag.tricks.Count))
+    {
+        <p>@Model.Name knows all the available tricks.</p>
+    }
+    else
+    {
+        <label for="tricks">Food</label>
+        <select id="tricks" name="trick">
+            @foreach (var trick in ViewBag.tricks)
+            {
+                if (!Model.Tricks.Exists(t => t == trick))
+                {
+                    <option value="@trick">@trick</option>
+                }
+            }
+
+        </select>
+
+        <button>Learn</button>
+    }
+</form>
+

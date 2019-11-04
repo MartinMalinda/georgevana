@@ -36,5 +36,40 @@ namespace FoxClub.Controllers
             foxService.foxes.Add(new Fox(name));
             return RedirectToAction("Index", "Home", new { name });
         }
+
+        [Route("nutritionstore")]
+
+        public IActionResult NutritionStore(string name)
+        {
+            ViewBag.foodTypes = foxService.foodTypes;
+            ViewBag.drinkTypes = foxService.drinkTypes;
+
+            return View(foxService.FindFoxByName(name));
+        }
+
+        [Route("nutritionstore")]
+        [HttpPost]
+        public IActionResult NutritionStore(string name, string food, string drink)
+        {
+            foxService.FindFoxByName(name).Drink = drink;
+            foxService.FindFoxByName(name).Food = food;
+            return RedirectToAction("Index", "Home", new { name });
+        }
+
+        [Route("trickcenter")]
+
+        public IActionResult TrickCenter(string name)
+        {
+            ViewBag.tricks = foxService.tricks;
+            return View(foxService.FindFoxByName(name));
+        }
+
+        [Route("trickcenter")]
+        [HttpPost]
+        public IActionResult TrickCenter(string name, string trick)
+        {
+            foxService.FindFoxByName(name).Tricks.Add(trick);
+            return RedirectToAction("Index", "Home", new { name });
+        }
     }
 }

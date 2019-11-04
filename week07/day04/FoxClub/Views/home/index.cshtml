@@ -8,14 +8,32 @@
 </head>
 <body>
     <ul>
-        <li><a href="~">Information</a></li>
+        <li>
+            <a href="/home/?name=@Model.Name">information</a>
+        </li>
+        <li>
+            <a href="/nutritionstore/?name=@Model.Name">nutrition store</a>
+        </li>
+        <li>
+            <a href="/trickcenter/?name=@Model.Name">trick center</a>
+        </li>
     </ul>
     <img src="~/greenfox.png" />
-    <p>This is @Model.Name. Currently living on pizza and lemonade. He knows 2 tricks.</p>
+    <p>This is @Model.Name. Currently living on @Model.Food and @Model.Drink. He knows @Model.Tricks.Count trick(s).</p>
     <h2>Known tricks</h2>
-    <ul>
-        <li>write HTML</li>
-        <li>code in Java</li>
-    </ul>
+
+    @if (Model.Tricks.Count.Equals(0))
+    {
+        <p>This fox doesnt know any tricks.</p>
+    }
+    else
+    {
+        <ul>
+            @foreach (var trick in Model.Tricks)
+            {
+                <li>@trick</li>
+            }
+        </ul>
+    }
 </body>
 </html>

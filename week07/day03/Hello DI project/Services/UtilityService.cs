@@ -19,7 +19,8 @@ namespace Hello_DI_project.Services
             "blue",
             "lime",
             "orange",
-            "magenta"
+            "magenta",
+            "black"
         };
 
             random = new Random();

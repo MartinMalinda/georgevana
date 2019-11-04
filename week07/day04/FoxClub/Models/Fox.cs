@@ -8,9 +8,9 @@ namespace FoxClub.Models
     public class Fox
     {
         public string Name { get; private set; }
-        public List<string> Tricks { get; private set; }
-        public string Food { get; private set; }
-        public string Drink { get; private set; }
+        public List<string> Tricks { get; set; }
+        public string Food { get; set; }
+        public string Drink { get; set; }
 
         public Fox(string name)
         {

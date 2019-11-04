@@ -17,7 +17,6 @@ namespace FoxClub
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddSpaStaticFiles();
             services.AddSingleton<FoxService>();
         }
 
