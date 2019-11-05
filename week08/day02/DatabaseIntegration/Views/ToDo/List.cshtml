@@ -1,0 +1,23 @@
+﻿<h1>Todos for today:</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>TITLE</th>
+            <th>URGENT</th>
+            <th>DONE</th>
+        </tr>
+    </thead>
+    
+    @foreach (var todo in Model)
+    {
+        <tr>
+            <td>@todo.Id</td>
+            <td>@todo.Title</td>
+            <td>@todo.IsUrgent</td>
+            <td>@todo.IsDone</td>
+        </tr>
+    }
+</table>
+<a href="/todo/?isActive=true">Show active tasks</a>

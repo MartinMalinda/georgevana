@@ -16,8 +16,8 @@ namespace FoxClub.Models
         {
             Name = name;
             this.Tricks = new List<string>();
-            this.Food = "";
-            this.Drink = "";
+            this.Food = "no food";
+            this.Drink = "no drink";
         }
     }
 }
