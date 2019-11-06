@@ -1,5 +1,6 @@
 ﻿<h1>Todos for today:</h1>
 
+<a href="/todo/AddToDo">Add ToDo</a>
 <table>
     <thead>
         <tr>
@@ -17,6 +18,7 @@
             <td>@todo.Title</td>
             <td>@todo.IsUrgent</td>
             <td>@todo.IsDone</td>
+            <td>@Html.ActionLink("Remove", "RemoveToDo", "todo", new { id = todo.Id })</td>
         </tr>
     }
 </table>

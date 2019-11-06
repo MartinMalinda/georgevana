@@ -24,9 +24,38 @@ namespace DatabaseIntegration.Controllers
             var todos = applicationContext.Todos.ToList();
             if (isActive)
             {
-                return View(todos.Where(t => t.IsDone == true).ToList());
+                return View(todos.Where(t => !t.IsDone).ToList());
             }
             return View(todos);
+        }
+
+        [HttpGet("AddToDo")]
+        public IActionResult AddToDo()
+        {
+            return View();
+        }
+
+        [HttpPost("AddToDo")]
+        public IActionResult AddToDo(string title, bool isUrgent)
+        {
+            using (var context = applicationContext)
+            {
+                var todo = new ToDo();
+                todo.Title = title;
+                todo.IsUrgent = isUrgent;
+                context.Todos.Add(todo);
+                context.SaveChanges();
+            }
+            return RedirectToAction("List");
+        }
+
+        [HttpGet("RemoveToDo")]
+        public IActionResult RemoveToDo(long id)
+        {
+            ToDo removeToDo = applicationContext.Todos.FirstOrDefault(t => t.Id == id);
+            applicationContext.Todos.Remove(removeToDo);
+            applicationContext.SaveChanges();
+            return RedirectToAction("List");
         }
 
         /*public List<ToDo> Todos { get; set; } = new List<ToDo>
