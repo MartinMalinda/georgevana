@@ -1,0 +1,20 @@
+﻿<h1>Edit Todo</h1>
+
+<form method="post" action="EditToDo">
+    <label for="title">Todo Name</label>
+    <input id="title" name="title" type="text" value="@ViewData["currentToDo"]"/>
+
+    <label for="isDone">Is Done?</label>
+    <select name="isDone">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+
+    <label for="isUrgent">Is Urgent?</label>
+    <select name="isUrgent">
+        <option value="true">Yes</option>
+        <option value="false">No</option>
+    </select>
+
+    <button name="id" value="@ViewData["id"]" type="submit">Submit</button>
+</form>

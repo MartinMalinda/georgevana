@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DatabaseIntegration.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DatabaseIntegration.Controllers
@@ -52,9 +53,38 @@ namespace DatabaseIntegration.Controllers
         [HttpGet("RemoveToDo")]
         public IActionResult RemoveToDo(long id)
         {
-            ToDo removeToDo = applicationContext.Todos.FirstOrDefault(t => t.Id == id);
-            applicationContext.Todos.Remove(removeToDo);
-            applicationContext.SaveChanges();
+            using (var context = applicationContext)
+            {
+                context.Todos.Remove(context.Todos.Find(id));
+                context.SaveChanges();
+                return RedirectToAction("List");
+            }
+        }
+
+        [HttpGet("EditToDo")]
+        public IActionResult EditToDo(long id)
+        {
+            using (var context = applicationContext)
+            {
+                ViewData["id"] = id;
+                ToDo currentToDo = context.Todos.Find(id);
+                ViewData["currentToDo"] = currentToDo.Title;
+                return View();
+            }
+        }
+
+        [HttpPost("EditToDo")]
+        public IActionResult EditToDo(long id, string title, bool isDone, bool isUrgent)
+        {
+            using (var context = applicationContext)
+            {
+                ToDo updateToDo = context.Todos.Find(id);
+                updateToDo.Title = title;
+                updateToDo.IsDone = isDone;
+                updateToDo.IsUrgent = isUrgent;
+                context.Todos.Update(updateToDo);
+                context.SaveChanges();
+            }
             return RedirectToAction("List");
         }
 
