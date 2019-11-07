@@ -1,20 +1,15 @@
-﻿<h1>Edit Todo</h1>
+﻿@model DatabaseIntegration.Models.ToDo
 
-<form method="post" action="EditToDo">
+<h1>Edit Todo</h1>
+
+<form method="post" action="@Model.Id/edit">
     <label for="title">Todo Name</label>
-    <input id="title" name="title" type="text" value="@ViewData["currentToDo"]"/>
+    <input id="title" name="title" type="text" value="@Model.Title" />
 
-    <label for="isDone">Is Done?</label>
-    <select name="isDone">
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-    </select>
-
-    <label for="isUrgent">Is Urgent?</label>
-    <select name="isUrgent">
-        <option value="true">Yes</option>
-        <option value="false">No</option>
-    </select>
+    <label for="IsUrgent">Urgent</label>
+    @Html.EditorFor(m => m.IsUrgent)
+    <label for="IsDone">Done</label>
+    @Html.EditorFor(m => m.IsDone)
 
     <button name="id" value="@ViewData["id"]" type="submit">Submit</button>
 </form>

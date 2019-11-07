@@ -61,20 +61,20 @@ namespace DatabaseIntegration.Controllers
             }
         }
 
-        [HttpGet("EditToDo")]
-        public IActionResult EditToDo(long id)
+        [HttpGet("{id}/edit")]
+        public IActionResult EditToDo([FromRoute] long id)
         {
             using (var context = applicationContext)
             {
-                ViewData["id"] = id;
+                //ViewData["id"] = id;
                 ToDo currentToDo = context.Todos.Find(id);
-                ViewData["currentToDo"] = currentToDo.Title;
-                return View();
+                //ViewData["currentToDo"] = currentToDo.Title;
+                return View(currentToDo);
             }
         }
 
-        [HttpPost("EditToDo")]
-        public IActionResult EditToDo(long id, string title, bool isDone, bool isUrgent)
+        [HttpPost("{id}/edit")]
+        public IActionResult EditToDo([FromRoute] long id, string title, bool isDone, bool isUrgent)
         {
             using (var context = applicationContext)
             {

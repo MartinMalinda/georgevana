@@ -19,7 +19,7 @@ namespace Hello_DI_project
             services.AddMvc();
             services.AddTransient<ConsoleLoggerMiddleware>();
             services.AddTransient<Printer>();
-            services.AddTransient<IColor, RedColor>();
+            services.AddTransient<IColor, BlueColor>();
             services.AddTransient<UtilityService>();
         }
 
