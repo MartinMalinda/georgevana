@@ -32,20 +32,26 @@ namespace REST.Controllers
         {
             if (name == null && title == null)
             {
-                return Json(new { error = "Please provide a name and a title!", status = 400 });
+                return BadRequest(new { error = "Please provide a name and a title!"});
             }
             else if (name == null)
             {
-                return Json(new { error = "Please provide a name!", status = 400 });
+                return BadRequest(new { error = "Please provide a name!"});
             }
             else if (title == null)
             {
-                return Json(new { error = "Please provide a title!", status = 400});
+                return BadRequest(new { error = "Please provide a title!"});
             }
             else
             {
                 return Json(new { welcome_message = $"Oh, hi there {name}, my dear {title}!" });
             }
+        }
+
+        [HttpGet("/appenda/{appendable}")]
+        public IActionResult AppendA([FromRoute] string appendable)
+        {
+            return Json(new { appended = $"{appendable}a" });
         }
     }
 }

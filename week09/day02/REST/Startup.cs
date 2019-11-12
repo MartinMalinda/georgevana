@@ -31,10 +31,10 @@ namespace REST
             app.UseStaticFiles();
             app.UseDefaultFiles();
 
-            app.Run(async (context) =>
+            /*app.Run(async (context) =>
             {
                 await context.Response.WriteAsync("Hello World!");
-            });
+            });*/
         }
     }
 }
