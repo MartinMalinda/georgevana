@@ -58,26 +58,32 @@ namespace REST.Controllers
         [HttpPost("/dountil/{operation}")]
         public IActionResult DoUntil([FromRoute] string operation, [FromBody]JObject until)
         {
-            if (operation == "sum")
+            if (until != null)
             {
-                int result = 0;
-                for (int j = 0; j <= until.Value<int>("until"); j++)
+                if (operation == "sum")
                 {
-                    result += j;
+                    int result = 0;
+                    for (int j = 0; j <= until.Value<int>("until"); j++)
+                    {
+                        result += j;
+                    }
+                    return Json(new { result });
                 }
-                return Json(new { result });
+                if (operation == "factor")
+                {
+                    int result = 1;
+                    for (int i = 1; i <= until.Value<int>("until"); i++)
+                    {
+                        result *= i;
+                    }
+                    return Json(new { result });
+                }
+                return Json(new { error = "Please provide a number!" });
             }
-
-            if (operation == "factor")
+            else
             {
-                int result = 1;
-                for (int i = 1; i <= until.Value<int>("until"); i++)
-                {
-                    result *= i;
-                }
-                return Json(new { result });
+                return Json(new { error = "Please provide a number!" });
             }
-            return Json(new { error = "Please provide a number!" });
         }
     }
 }
