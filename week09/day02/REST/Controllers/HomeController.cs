@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json.Linq;
 
 namespace REST.Controllers
 {
@@ -30,7 +31,7 @@ namespace REST.Controllers
         [HttpGet("/greeter")]
         public IActionResult Greet(string name, string title)
         {
-            if (name == null && title == null)
+            if (string.IsNullOrEmpty(name) && title == null)
             {
                 return BadRequest(new { error = "Please provide a name and a title!"});
             }
@@ -52,6 +53,31 @@ namespace REST.Controllers
         public IActionResult AppendA([FromRoute] string appendable)
         {
             return Json(new { appended = $"{appendable}a" });
+        }
+
+        [HttpPost("/dountil/{action}")]
+        public IActionResult DoUntil([FromRoute] string action, [FromBody]JObject until)
+        {
+            if (action == "sum")
+            {
+                int result = 0;
+                for (int j = 1; j <= until.Value<int>("until"); j++)
+                {
+                    result += 1;
+                }
+                return Json(new { result, status = 200 });
+            }
+
+            if (action == "factor")
+            {
+                int result = 1;
+                for (int i = 1; i <= until.Value<int>("until"); i++)
+                {
+                    result *= i;
+                }
+                return Json(new { result, status = 200 });
+            }
+            return Json(new { error = "Please provide a number!" });
         }
     }
 }
