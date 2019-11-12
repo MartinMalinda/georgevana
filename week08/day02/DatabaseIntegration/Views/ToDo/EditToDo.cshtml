@@ -2,7 +2,7 @@
 
 <h1>Edit Todo</h1>
 
-<form method="post" action="/todo/@Model.Id/edit">
+<form method="post" action="@Url.Action("SaveToDo","ToDo", new { id = Model.Id })">
     <label for="title">Todo Name</label>
     <input id="title" name="title" type="text" value="@Model.Title" />
 
