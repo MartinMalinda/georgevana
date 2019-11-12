@@ -55,27 +55,27 @@ namespace REST.Controllers
             return Json(new { appended = $"{appendable}a" });
         }
 
-        [HttpPost("/dountil/{action}")]
-        public IActionResult DoUntil([FromRoute] string action, [FromBody]JObject until)
+        [HttpPost("/dountil/{operation}")]
+        public IActionResult DoUntil([FromRoute] string operation, [FromBody]JObject until)
         {
-            if (action == "sum")
+            if (operation == "sum")
             {
                 int result = 0;
-                for (int j = 1; j <= until.Value<int>("until"); j++)
+                for (int j = 0; j <= until.Value<int>("until"); j++)
                 {
-                    result += 1;
+                    result += j;
                 }
-                return Json(new { result, status = 200 });
+                return Json(new { result });
             }
 
-            if (action == "factor")
+            if (operation == "factor")
             {
                 int result = 1;
                 for (int i = 1; i <= until.Value<int>("until"); i++)
                 {
                     result *= i;
                 }
-                return Json(new { result, status = 200 });
+                return Json(new { result });
             }
             return Json(new { error = "Please provide a number!" });
         }
