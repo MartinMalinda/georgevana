@@ -78,12 +78,8 @@ namespace REST.Controllers
                     }
                     return Json(new { result });
                 }
-                return Json(new { error = "Please provide a number!" });
             }
-            else
-            {
-                return Json(new { error = "Please provide a number!" });
-            }
+            return Json(new { error = "Please provide a number!" });
         }
     }
 }
