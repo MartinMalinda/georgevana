@@ -12,6 +12,12 @@ namespace REST.Controllers
     [ApiController]
     public class HomeController : Controller
     {
+        private ApplicationContext applicationContext;
+        public HomeController(ApplicationContext applicationContext)
+        {
+            this.applicationContext = applicationContext;
+        }
+
         public IActionResult Index()
         {
             return File("index.html", "text/html");
