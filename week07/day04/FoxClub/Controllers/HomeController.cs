@@ -24,20 +24,21 @@ namespace FoxClub.Controllers
             return View(foxService.FindFoxByName(name));
         }
 
-        [HttpGet("login")]
+        [Route("")]
+        [HttpGet("/login")]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost("login")]
+        [HttpPost("/login")]
         public IActionResult Login(string name)
         {
             foxService.foxes.Add(new Fox(name));
             return RedirectToAction("Index", "Home", new { name });
         }
 
-        [Route("nutritionstore")]
+        [Route("/nutritionstore")]
 
         public IActionResult NutritionStore(string name)
         {
@@ -47,7 +48,7 @@ namespace FoxClub.Controllers
             return View(foxService.FindFoxByName(name));
         }
 
-        [Route("nutritionstore")]
+        [Route("/nutritionstore")]
         [HttpPost]
         public IActionResult NutritionStore(string name, string food, string drink)
         {
@@ -56,7 +57,7 @@ namespace FoxClub.Controllers
             return RedirectToAction("Index", "Home", new { name });
         }
 
-        [Route("trickcenter")]
+        [Route("/trickcenter")]
 
         public IActionResult TrickCenter(string name)
         {
@@ -64,7 +65,7 @@ namespace FoxClub.Controllers
             return View(foxService.FindFoxByName(name));
         }
 
-        [Route("trickcenter")]
+        [Route("/trickcenter")]
         [HttpPost]
         public IActionResult TrickCenter(string name, string trick)
         {

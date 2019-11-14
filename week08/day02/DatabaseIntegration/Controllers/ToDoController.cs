@@ -83,6 +83,20 @@ namespace DatabaseIntegration.Controllers
             return RedirectToAction("List");
         }
 
+        [HttpGet("/search")]
+        public IActionResult SearchToDo(string title)
+        {
+            using(var context = applicationContext)
+            {
+                if (title == null)
+                {
+                    return RedirectToAction("List");
+                }
+                var todos = applicationContext.Todos.ToList();
+                return View("List", todos.Where(t => t.Title.ToLower().Contains(title)));
+            }
+        }
+
         /*[HttpGet("/edit")]
         public IActionResult EditTodo(long id)
         {
