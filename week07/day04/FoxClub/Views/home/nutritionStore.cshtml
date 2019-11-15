@@ -8,6 +8,9 @@
         <a href="/home/?name=@Model.Name">information</a>
     </li>
     <li>
+        @Html.ActionLink("actionLinkInformation", "Index", (new { name = Model.Name }))
+    </li>
+    <li>
         <a href="/nutritionstore/?name=@Model.Name">nutrition store</a>
     </li>
     <li>
